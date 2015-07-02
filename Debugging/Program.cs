@@ -18,6 +18,13 @@ namespace Debugging
 
             NodeSocket.Common.RemoteFunction<Object> serverFunction = client.LinkFunction<Object>("serverFunction");
 
+            client.DefineFunction("clientFunction", (arguments =>
+            {
+                Console.WriteLine("Executed on client\n");
+
+                return "Hello";
+            }));
+
 			client.OnConnect = delegate(Socket socket)
 			{
 				Console.WriteLine("Connected");

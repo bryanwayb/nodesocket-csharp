@@ -13,7 +13,7 @@ namespace NodeSocket
 		private bool master = false;
 		private Common.EnumConnectionState state = Common.EnumConnectionState.Disconnected;
 		private bool continueListen = true; // Use to break listen loop
-        private List<Common.RemoteFunction<Object>> functions = new List<Common.RemoteFunction<Object>>();
+        private Dictionary<String, Common.RemoteFunction<Object>> functions = new Dictionary<String, Common.RemoteFunction<Object>>();
 
 		public Action<Socket> OnConnect = null;
 		public Action<Socket> OnVerified = null;
@@ -140,6 +140,11 @@ namespace NodeSocket
             };
         }
 
+        public void DefineFunction(String identifier, Common.RemoteFunction<Object> function)
+        {
+            this.functions[identifier] = function;
+        }
+
 		public bool RequestMaster()
 		{
 			if(!this.master)
@@ -237,7 +242,7 @@ namespace NodeSocket
 				{
 					if(buffer[0] == (byte)Common.EnumExecutionCode.ExecFunction)
 					{
-						// TODO: Execute function
+                        this.writeSocket(Common.ParseExecutePayload(this.functions, this.readSocket()));
 					}
 					else if(buffer[0] == (byte)Common.EnumExecutionCode.RequestSlave)
 					{
