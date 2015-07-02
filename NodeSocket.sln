@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NodeSocket", "NodeSocket\NodeSocket.csproj", "{972005BC-531B-431A-92BC-790465C3E3FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Debugging", "Debugging\Debugging.csproj", "{B7B71F47-99EE-4EAB-B977-251E0B618971}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{972005BC-531B-431A-92BC-790465C3E3FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{972005BC-531B-431A-92BC-790465C3E3FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{972005BC-531B-431A-92BC-790465C3E3FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{972005BC-531B-431A-92BC-790465C3E3FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7B71F47-99EE-4EAB-B977-251E0B618971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7B71F47-99EE-4EAB-B977-251E0B618971}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7B71F47-99EE-4EAB-B977-251E0B618971}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7B71F47-99EE-4EAB-B977-251E0B618971}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
