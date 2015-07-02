@@ -6,6 +6,7 @@ namespace NodeSocket
 {
 	public static class Common
 	{
+        public delegate T RemoteFunction<T>(params Object[] args);
 		public static Encoding Encoding = Encoding.UTF8;
 		public static byte[] NodeSocketSignature = Common.Encoding.GetBytes("nsockv01");
 

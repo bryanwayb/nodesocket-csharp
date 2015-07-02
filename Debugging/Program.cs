@@ -16,6 +16,8 @@ namespace Debugging
 
 			NodeSocket.Client client = new NodeSocket.Client(8080, "localhost");
 
+            NodeSocket.Common.RemoteFunction<Object> serverFunction = client.LinkFunction<Object>("serverFunction");
+
 			client.OnConnect = delegate(Socket socket)
 			{
 				Console.WriteLine("Connected");
@@ -25,7 +27,7 @@ namespace Debugging
 			{
 				Console.WriteLine("Verified");
 
-				client.RemoteExecute<object>("serverFunction");
+                serverFunction();
 				client.Listen();
 			};
 

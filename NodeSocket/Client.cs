@@ -13,6 +13,7 @@ namespace NodeSocket
 		private bool master = false;
 		private Common.EnumConnectionState state = Common.EnumConnectionState.Disconnected;
 		private bool continueListen = true; // Use to break listen loop
+        private List<Common.RemoteFunction<Object>> functions = new List<Common.RemoteFunction<Object>>();
 
 		public Action<Socket> OnConnect = null;
 		public Action<Socket> OnVerified = null;
@@ -130,6 +131,14 @@ namespace NodeSocket
 				throw new Exception("Unable to execute remote function when acting as a slave");
 			}
 		}
+
+        public Common.RemoteFunction<T> LinkFunction<T>(String identifier)
+        {
+            return args =>
+            {
+                return this.RemoteExecute<T>(identifier, new List<Object>(args));
+            };
+        }
 
 		public bool RequestMaster()
 		{
