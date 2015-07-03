@@ -22,6 +22,8 @@ namespace Debugging
             {
                 Console.WriteLine("Executed on client\n");
 
+                client.StopListening();
+
                 return "Hello";
             }));
 

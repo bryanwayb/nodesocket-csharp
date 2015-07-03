@@ -104,6 +104,8 @@ namespace NodeSocket
 
 					buffer = this.readSocket();
 
+                    this.state = Common.EnumConnectionState.Verified;
+
 					if(buffer[0] == (byte)Common.EnumNodeResponse.Okay)
 					{
 						return Common.ParseResultPayload<T>(buffer);
@@ -255,6 +257,11 @@ namespace NodeSocket
 				}
 			}
 		}
+
+        public void StopListening()
+        {
+            this.continueListen = false;
+        }
 
 		protected byte[] readSocket(int maxBytes = -1, bool indefinite = false)
 		{
